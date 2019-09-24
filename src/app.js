@@ -5,6 +5,7 @@ const geocode=require('./utils/geocode')
 const forecast=require('./utils/forecast')
 
 const app=express()
+const port=process.env.PORT || 3000         // setting port number {process.env.PORT: when used in heroku environment} or {3000 locally}
 
 //Define paths for Express config
 const publicDirect=path.join(__dirname,"../public")
@@ -47,8 +48,7 @@ app.get('/weather',(req,res)=>{
         return res.send({
             error: 'Please provide the address'
         })
-    }
-    
+    }   
     geocode(req.query.address,(error,{latitude,longitude,location}={})=>{        //undefined objects can't be destructured ,hence we assigned default ={}
     //it is not a convention, but a good practise to take error and data both as parameters in callback fn
     //destructuring data object
@@ -72,18 +72,14 @@ app.get('/weather',(req,res)=>{
                 forecast: forecastdata
             })
         })   
-
-    })
-
-    
+    })   
 })
 
 app.get('/products',(req,res)=>{
     if(!req.query.search){
         return res.send({
             error: 'you must provide a search term'
-        })
-        
+        })      
     }
     res.send({
         products: []
@@ -107,7 +103,7 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen(3000, ()=>{
-    console.log("Server Started on port 3000");
+app.listen(port, ()=>{
+    console.log("Server Started on port "+port);
     
 }) 
