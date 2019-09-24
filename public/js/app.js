@@ -12,7 +12,7 @@ weatherform.addEventListener('submit',(e)=>{        //e stands for event
     msgone.textContent='Loading......'
     msgfore.textContent=''      //to clear value of previous fetched data
     
-    fetch('http://localhost:3000/weather?address='+location).then((response)=>{
+    fetch('/weather?address='+location).then((response)=>{      //removed localhost as it may change on hiroku when deployed
         response.json().then((data)=>{
         if(data.error){
             msgone.textContent= data.error
