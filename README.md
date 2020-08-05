@@ -21,7 +21,7 @@ A step by step series of examples that tell you how to get a development env run
 Checkout to the weather app folder.
 
 ```
-cd weather-app-node
+cd Node-js-WeatherApp
 ```
 
 Install all the dependencies
