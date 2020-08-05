@@ -40,7 +40,7 @@ For production:
 npm start
 ```
 
-Now, go to http://localhost:8080/
+Now, go to http://localhost:3000/
 
 ## Built With
 
